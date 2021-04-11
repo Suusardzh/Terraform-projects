@@ -12,6 +12,9 @@ The infrastructure `Terraform ` can manage  includes low-level components such a
 Infrastructure is describing using a high-level configuration syntax. This allows a bluebrint of your datacenter to be versioned and treated as you would any other code.
 And, Infrastructure can be shared and re-used.
 
+
+![alt text](https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:1000/https://www.filepicker.io/api/file/uO5bkREsSPO8butf1UJT)
+
 ## Execution Plans
 `Terraform`  has a "planning" step where it  generates an execution plan. 
 
