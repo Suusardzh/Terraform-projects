@@ -23,3 +23,7 @@ And, Infrastructure can be shared and re-used.
 
 ## Change Automation
 Complex change set can be applied  to your infrastructure with minimal human interaction.
+
+### Benefits of IaC
+
+#### Self-service

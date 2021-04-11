@@ -1,9 +1,9 @@
 resource "aws_instance" "first_ec2" {
-  ami                    = ""
-  instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_security_group.first_sg.id]
-  key_name               = aws_key_pair.first_key.name
-  user_data              = file("user_data.sh")
+  ami                    = data.aws_ami.amazon_linux_2.image_id   ### data source reference
+  instance_type          = var.instance_type   ###variable
+  vpc_security_group_ids = [aws_security_group.first_sg.id] ### resource reference
+  key_name               = aws_key_pair.first_key.key_name  ###resource reference
+  user_data              = file("user_data.sh")  ###function
 
   tags = {
     Name = var.env
