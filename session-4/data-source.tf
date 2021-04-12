@@ -14,3 +14,10 @@ data "aws_ami" "amazon_linux_2" {
 
 
 }
+
+data "template_file" "user_data" {
+  template = file ("user_data.sh")
+  vars = {
+    environment = var.env
+  }
+}
