@@ -2,7 +2,7 @@
 
 resource "aws_subnet" "public_subnet-01" {
   vpc_id     = aws_vpc.first_vpc.id
-  cidr_block = var.subnet_cidr_block_01
+  cidr_block = var.public_subnet_cidr_block_01
 
   tags = {
     Name = "public_subnet_01"
@@ -13,7 +13,7 @@ resource "aws_subnet" "public_subnet-01" {
 ### Public subnets02
 resource "aws_subnet" "public_subnet-02" {
   vpc_id     = aws_vpc.first_vpc.id
-  cidr_block = var.subnet_cidr_block02
+  cidr_block = var.public_subnet_cidr_block_02
 
   tags = {
     Name = "public_subnet_02"
@@ -25,7 +25,7 @@ resource "aws_subnet" "public_subnet-02" {
 ### Public subnets03
 resource "aws_subnet" "public_subnet-03" {
   vpc_id     = aws_vpc.first_vpc.id
-  cidr_block = var.subnet_cidr_block03
+  cidr_block = var.public_subnet_cidr_block_03
 
   tags = {
     Name = "public_subnet_03"
