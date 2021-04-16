@@ -9,8 +9,3 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-###aws_public_route_table_internet_association
-resource "aws_route_table_association" "igw" {
-  gateway_id     = aws_internet_gateway.igw.id
-  route_table_id = aws_route_table.public.id
-}

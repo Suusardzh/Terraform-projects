@@ -17,7 +17,7 @@ output "vpc_id"{
 
 ##public rt id
  output "public-route-table" {
-     value = aws_route_table.public.id
+     value = aws_route_table.pub_rt.id
  }
 
 ##igw id
