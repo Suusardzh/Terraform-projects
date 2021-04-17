@@ -5,8 +5,6 @@ variable "project"{
     description = "name of the project"
 }
 
-
-## env
 variable "env" {
     default = "dev"
     type = "string"
@@ -57,4 +55,21 @@ variable "instance_type" {
     default = "t2.micro"
     type = "string"
     description = "this is an instance type"
+}
+
+### sg.tf
+variable "tcp_cidr_block" {
+    default = "0.0.0.0/0"
+    type = "string"
+    description = "this is a tcp_cidr_block"
+}
+variable "ssh_cidr_block" {
+    default = "0.0.0.0/0"
+    type = "string"
+    description = "this is a ssh_cidr_block"
+}
+variable "egress_tcp_cidr_block" {
+    default = "0.0.0.0/0"
+    type = "string"
+    description = "this is a egress_tcp_cidr_block"
 }
