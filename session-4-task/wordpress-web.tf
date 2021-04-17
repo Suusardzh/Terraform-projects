@@ -3,7 +3,7 @@ resource "aws_instance" "wordpress-web" {
   instance_type          = var.instance_type   ###variable
   vpc_security_group_ids     = [aws_security_group.wordpress.id] ### resource reference
   key_name               = aws_key_pair.terraform_key.key_name  ###resource reference
-  #user_data              = data.template_file.user_data.rendered ###function
+  user_data              = data.template_file.user_data.rendered ###function
   subnet_id              = aws_subnet.public_subnet-01.id
 
   tags = {
