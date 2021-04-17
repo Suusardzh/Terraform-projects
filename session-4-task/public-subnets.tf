@@ -5,8 +5,8 @@ resource "aws_subnet" "public_subnet-01" {
   cidr_block = var.public_subnet_cidr_block_01
 
   tags = {
-    Name = "${var.env}-pub_subnet1"
-    Env =   var.env
+    Name    = "${var.env}-pub_subnet1"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -16,8 +16,8 @@ resource "aws_subnet" "public_subnet-02" {
   cidr_block = var.public_subnet_cidr_block_02
 
   tags = {
-    Name = "${var.env}-pub_subnet2"
-    Env =   var.env
+    Name    = "${var.env}-pub_subnet2"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -28,8 +28,8 @@ resource "aws_subnet" "public_subnet-03" {
   cidr_block = var.public_subnet_cidr_block_03
 
   tags = {
-    Name = "${var.env}-pub_subnet3"
-    Env =   var.env
+    Name    = "${var.env}-pub_subnet3"
+    Env     = var.env
     Project = var.project
   }
 }

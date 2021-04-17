@@ -3,8 +3,8 @@ resource "aws_vpc" "first_vpc" {
   cidr_block = var.vpc_cidr_block
 
   tags = {
-    Name = "${var.env}-VPC"
-    Env =   var.env
+    Name    = "${var.env}-VPC"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -15,8 +15,8 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.first_vpc.id
 
   tags = {
-    Name = "${var.env}-IWG"
-    Env =   var.env
+    Name    = "${var.env}-IWG"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -29,8 +29,8 @@ resource "aws_route_table" "pub_rt" {
   }
 
   tags = {
-    Name = "${var.env}-Public_RT"
-    Env =   var.env
+    Name    = "${var.env}-Public_RT"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -53,11 +53,11 @@ resource "aws_route_table_association" "public_subnet-03" {
 
 ### natgateway eip
 resource "aws_eip" "nat-gw-eip" {
-  vpc      = true
+  vpc = true
 
   tags = {
-    Name = "${var.env}-nat_eip"
-    Env =   var.env
+    Name    = "${var.env}-nat_eip"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -70,8 +70,8 @@ resource "aws_nat_gateway" "nat_gw" {
   subnet_id     = aws_subnet.public_subnet-01.id
 
   tags = {
-    Name = "${var.env}-natgw"
-    Env =   var.env
+    Name    = "${var.env}-natgw"
+    Env     = var.env
     Project = var.project
   }
 }
@@ -86,8 +86,8 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "${var.env}-PR_RT"
-    Env =   var.env
+    Name    = "${var.env}-PR_RT"
+    Env     = var.env
     Project = var.project
   }
 }

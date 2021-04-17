@@ -5,8 +5,8 @@ resource "aws_subnet" "private_subnet-01" {
   cidr_block = var.private_subnet_cidr_block_01
 
   tags = {
-    Name = "private_subnet-01"
-    Env = var.env
+    Name    = "private_subnet-01"
+    Env     = var.env
     Project = "VPC"
   }
 }
@@ -16,8 +16,8 @@ resource "aws_subnet" "private_subnet-02" {
   cidr_block = var.private_subnet_cidr_block_02
 
   tags = {
-    Name = "private_subnet-02"
-    Env = var.env
+    Name    = "private_subnet-02"
+    Env     = var.env
     Project = "VPC"
   }
 }
@@ -28,8 +28,8 @@ resource "aws_subnet" "private_subnet-03" {
   cidr_block = var.private_subnet_cidr_block_03
 
   tags = {
-    Name = "private_subnet-03"
-    Env = var.env
+    Name    = "private_subnet-03"
+    Env     = var.env
     Project = "VPC"
   }
 }

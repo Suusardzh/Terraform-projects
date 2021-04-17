@@ -1,6 +1,6 @@
 data "aws_ami" "amazon_linux_2" {
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
@@ -16,7 +16,7 @@ data "aws_ami" "amazon_linux_2" {
 }
 
 data "template_file" "user_data" {
-  template = file ("user_data.sh")
+  template = file("user_data.sh")
   vars = {
     environment = var.env
   }
