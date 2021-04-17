@@ -12,6 +12,6 @@ resource "aws_instance" "first_ec2" {
 }
 
 resource "aws_key_pair" "first_key" {
-  key_name   = "Terraform-Server"
+  key_name   = "Terraform-Server2"
   public_key = file("~/.ssh/id_rsa.pub")
 }
