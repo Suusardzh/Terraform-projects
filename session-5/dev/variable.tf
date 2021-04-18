@@ -9,3 +9,8 @@ variable "instance_type" {
     type = string
     description = "this is an instance type"
 }
+
+variable "web_sg_tcp_ports" {
+    type = list(string)
+    description = "this is a sg_ports"
+}
