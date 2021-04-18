@@ -21,3 +21,10 @@ data "template_file" "user_data" {
     environment = var.env
   }
 }
+
+data "template_file" "sql-userdata" {
+  template = file("sql-userdata.sh")
+  vars = {
+    environment = var.env
+  }
+}
