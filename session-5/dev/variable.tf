@@ -14,3 +14,7 @@ variable "web_sg_tcp_ports" {
     type = list(string)
     description = "this is a sg_ports"
 }
+
+variable "web_sg_tcp_ports_cidr" {
+    type = list(string)
+}
