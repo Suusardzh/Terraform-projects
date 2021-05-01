@@ -7,7 +7,7 @@ data "aws_subnet" "public_subnet-01" {
 }
 
 data "aws_ami" "amazon_linux2" {
-    most-recent  = true
+    most_recent  = true
     owners    =  ["amazon"]
      
      filter {
