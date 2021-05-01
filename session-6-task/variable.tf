@@ -50,3 +50,8 @@ variable "private_subnet_cidr_block_03" {
   type        = string
   description = "Cidr block for private_subnet_03"
 }
+
+variable "instance_type" {
+    type = string
+    default = "t2.micro"
+}
