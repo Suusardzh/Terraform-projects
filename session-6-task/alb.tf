@@ -1,16 +1,16 @@
-resource "aws_lb" "websever_alb" {
-    name                = "${var.env}-websever_alb"
+resource "aws_lb" "webserver_alb" {
+    name                = "${var.env}-webserver-alb"
     internal            = false
     load_balancer_type  = "application"
     security_groups     = [aws_security_group.alb_sg.id]
-    subnets             = data.aws_subnet.public_subnet-01.id
+    subnets             = data.aws_subnet_ids.public_subnet-01.ids
 }
 
 resource  "aws_lb_target_group" "webserver_tg" {
     name              =  "${var.env}-webserver-tg"
     port              =  80
     protocol          = "HTTP"
-    vpc_id            =  data.aws_vpc.first_vpc.id
+    vpc_id            =  data.aws_vpc.custom_vpc.id
 }
 
 resource  "aws_lb_listener" "webserver_listener" {
@@ -28,7 +28,7 @@ resource  "aws_lb_listener" "webserver_listener" {
 resource  "aws_security_group" "alb_sg" {
     name          =  "${var.env}-alb_sg"
     description   =  "Allow HTTP traffic"
-    vpc_id        =   data.aws_vpc.first_vpc.id
+    vpc_id        =   data.aws_vpc.custom_vpc.id
 }
 
 resource "aws_security_group_rule" "http-ingress" {

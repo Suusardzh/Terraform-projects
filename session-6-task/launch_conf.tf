@@ -8,7 +8,7 @@ resource "aws_launch_configuration" "webserver_lc" {
 resource "aws_security_group" "webserver_sg" {
     name         =  "${var.env}-webserver_sg"
     description  =  "Allow HTTP traffic"
-    vpc_id       =  data.aws_vpc.first_vpc.id
+    vpc_id       =  data.aws_vpc.custom_vpc.id
 }
 
 resource "aws_security_group_rule" "http_from_lb" {

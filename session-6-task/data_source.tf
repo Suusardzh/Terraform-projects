@@ -1,9 +1,11 @@
-data "aws_vpc" "first_vpc"{
-    default  = false
+data "aws_vpc" "custom_vpc"{
+    id  =  aws_vpc.custom_vpc.id
 }
 
-data "aws_subnet" "public_subnet-01" {
-    vpc_id   =  data.aws_vpc.first_vpc.id
+
+
+data "aws_subnet_ids" "public_subnet-01" {
+    vpc_id   =  data.aws_vpc.custom_vpc.id
 }
 
 data "aws_ami" "amazon_linux2" {

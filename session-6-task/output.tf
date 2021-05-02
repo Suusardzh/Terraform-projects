@@ -1,6 +1,6 @@
 ##vpc id 
 output "vpc_id" {
-  value = aws_vpc.first_vpc.id
+  value = aws_vpc.custom_vpc.id
 }
 ##public-subnet-id
 output "public-subnet_id-01" {

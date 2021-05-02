@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "webserver-asg" {
   desired_capacity          = 1
   force_delete              = true
   launch_configuration      = aws_launch_configuration.webserver_lc.name
-  vpc_zone_identifier       = data.aws_subnet.public_subnet-01.id
+  vpc_zone_identifier       = data.aws_subnet_ids.public_subnet-01.ids
 
 }
 
