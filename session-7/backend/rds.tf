@@ -4,12 +4,38 @@ resource "aws_db_instance" "rds" {
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
-  indentifier          = "${var.env}-instance"                                                                                                        
+  identifier          = "${var.env}-instance"                                                                                                        
   name                 = "wordpress"
   username             = "admin"
   password             = random_password.password.result
   skip_final_snapshot  = var.snapshot  #true
   final_snapshot_identifier = var.snapshot == true ? null  : "${var.env}-snapshot"        # we don't need this identifier
-  vpc_security_group_ids = []
+  vpc_security_group_ids = [aws_security_group.rds_sg.id]
   publicly_accessible    = var.env == "dev" ? true : false
 }           
+
+
+resource "aws_security_group" "rds_sg"{
+    name = "${var.env}-rds_sg"
+    description = "Allow HTTP traffic"
+}   ##vpc must be here unless default one
+
+resource "aws_security_group_rule" "http_from_lb" {
+    type = "ingress"
+    from_port = 3306
+    to_port = 3306
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    security_group_id = aws_security_group.rds_sg.id
+
+}
+
+resource "aws_security_group_rule" "rds_egress" {
+    type = "egress"
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    security_group_id = aws_security_group.rds_sg.id
+
+}
