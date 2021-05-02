@@ -38,7 +38,7 @@ resource "aws_route_table" "pub_rt" {
 ###aws_public_route_table_subnet_association
 
 resource "aws_route_table_association" "public_subnet-01" {
-  subnet_id      = aws_subnet.public_subnet-01.id
+  subnet_id      = data.aws_subnet_ids.public_subnet-01.ids
   route_table_id = aws_route_table.pub_rt.id
 }
 resource "aws_route_table_association" "public_subnet-02" {
@@ -67,7 +67,7 @@ resource "aws_eip" "nat-gw-eip" {
 
 resource "aws_nat_gateway" "nat_gw" {
   allocation_id = aws_eip.nat-gw-eip.id
-  subnet_id     = aws_subnet.public_subnet-01.id
+  subnet_id     = data.aws_subnet_ids.public_subnet-01.ids
 
   tags = {
     Name    = "${var.env}-natgw"
