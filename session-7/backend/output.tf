@@ -16,3 +16,7 @@ output "rds_password" {
 output "rds_db_endpoint" {
     value = aws_db_instance.rds.address
 }
+
+output "rds_sg" {
+    value = aws_security_group.rds_sg.id
+}
