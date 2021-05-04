@@ -32,6 +32,17 @@ resource "aws_security_group_rule" "http_from_lb" {
 
 }
 
+// resource "aws_security_group_rule" "db_sg_to_web_sg" {
+//     type = "ingress"
+//     from_port = 3306
+//     to_port = 3306
+//     protocol = "tcp"
+//     // source_security_group_id = module.source_sg_for_rds_sg.webserver-sg_id
+//     security_group_id = aws_security_group.rds_sg.id
+
+// }
+
+
 // resource "aws_security_group_rule" "rds_egress" {
 //     type = "egress"
 //     from_port = 0

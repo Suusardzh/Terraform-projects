@@ -17,3 +17,6 @@ output "rds_password" {
 output "rds_db_endpoint" {
     value = data.terraform_remote_state.rds.outputs.rds_db_endpoint
 }
+output "web_sg_id" {
+    value = aws_security_group.webserver_sg.id
+}
