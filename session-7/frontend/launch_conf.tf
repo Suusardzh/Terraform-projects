@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "mysql_to_db" {
     from_port = 3306
     to_port = 3306
     protocol = "tcp"
-    cidr_blocks = data.terraform_remote_state.rds.outputs.rds_sg.id
+    cidr_blocks = ["0.0.0.0/0"]  #data.terraform_remote_state.rds.outputs.rds_sg.id
     security_group_id = aws_security_group.webserver_sg.id
 
 }
