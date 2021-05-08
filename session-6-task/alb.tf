@@ -14,6 +14,8 @@ resource "aws_lb_target_group" "webserver_tg" {
   vpc_id   = aws_vpc.first_vpc.id
 }
 
+ 
+
 resource "aws_lb_listener" "webserver_listener" {
   load_balancer_arn = aws_lb.webserver_alb.arn
   port              = "80"
