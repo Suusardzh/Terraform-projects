@@ -1,15 +1,16 @@
 resource "aws_launch_configuration" "webserver_lc" {
-    name            =  "${var.env}-websever_lc"
-    image_id        = data.aws_ami.amazon_linux2.id
-    instance_type   = var.instance_type
-    user_data       = data.template_file.webserver.rendered
+  name          = "${var.env}-webserver_lc"
+  image_id      = data.aws_ami.amazon_linux2.id
+  instance_type = var.instance_type
+  user_data = data.template_file.webserver.rendered
+  security_groups = [aws_security_group.webserver_sg.id]
 }
 
-resource "aws_security_group" "webserver_sg" {
-    name         =  "${var.env}-webserver_sg"
-    description  =  "Allow HTTP traffic"
-    vpc_id       =  data.aws_vpc.custom_vpc.id
-}
+resource "aws_security_group" "webserver_sg"{
+    name = "${var.env}-webserver_sg"
+    description = "Allow HTTP traffic"
+    vpc_id   = aws_vpc.first_vpc.id
+}   ##vpc must be here unless default one
 
 resource "aws_security_group_rule" "http_from_lb" {
     type = "ingress"
