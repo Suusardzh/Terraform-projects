@@ -23,7 +23,8 @@ resource "aws_instance" "web_server" {
     inline = [
       "sudo yum install httpd -y",
       "sudo cp /tmp/index.html /var/www/html/index.html",
-      "sudo systemctl enable httpd && systemctl start httpd"
+      "sudo systemctl enable httpd",
+      "sudo systemctl start httpd"
     ]
     connection {
       type        = "ssh"
