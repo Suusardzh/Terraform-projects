@@ -13,7 +13,7 @@ If you need to run provisioners that aren't directly associated with a specific 
 
 ### local-exec Provisioner
 
-The `local-exec` provisioner invokes a `local` executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource. See the `remote-exec` provisioner to run commands on the resource.
+The `local-exec` provisioner invokes a `local` executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource. 
 
  ```
 resource "aws_instance" "web" {
@@ -21,6 +21,21 @@ resource "aws_instance" "web" {
 
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
+  }
+}
+```
+
+### ``remote-exec`` Provisioner
+The `remote-exec` provisioner invokes a script on a remote resource after it is created. This can be used to run a configuration management tool, `bootstrap` into a cluster, etc. 
+```
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply",
+      "consul join ${aws_instance.web.private_ip}",
+    ]
   }
 }
 ```
