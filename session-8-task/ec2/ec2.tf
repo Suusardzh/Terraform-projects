@@ -7,17 +7,17 @@ resource "aws_instance" "web_server" {
 
   tags = local.common_tags
 
-  provisioner "file" {
-    source      = "index.html"
-    destination = "/tmp/index.html"
+  // provisioner "file" {
+  //   source      = "index.html"
+  //   destination = "/tmp/index.html"
 
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      host        = self.public_ip
-      private_key = file("~/.ssh/id_rsa")
-    }
-  }
+  //   connection {
+  //     type        = "ssh"
+  //     user        = "ec2-user"
+  //     host        = self.public_ip
+  //     private_key = file("~/.ssh/id_rsa")
+  //   }
+  // }
 
   // provisioner "remote-exec" {
   //   inline = [
@@ -54,6 +54,20 @@ resource "null_resource" "httpd" {
   }
 }
 
+resource "null_resource" "file" {
+  provisioner "file" {
+    source      = "index.html"
+    destination = "/tmp/index.html"
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      host        = aws_instance.web_server.public_ip
+      private_key = file("~/.ssh/id_rsa")
+    }
+  }
+} 
+
 resource "aws_key_pair" "terraform_key" {
   key_name   = "Terraform-Server"
   public_key = file("~/.ssh/id_rsa.pub")
@@ -87,7 +101,5 @@ resource "aws_security_group" "web_server_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "first_sh"
-  }
+  tags = local.common_tags
 }
