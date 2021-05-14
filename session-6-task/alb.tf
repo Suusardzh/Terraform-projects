@@ -45,7 +45,6 @@ resource "aws_security_group_rule" "http_igress" {
 }
 
 
-
 resource "aws_security_group_rule" "alb_egress" {
     type = "egress"
     from_port = 0

@@ -36,6 +36,18 @@ variable "subnet_az_zone02" {
   type = string
   description = "az zone for subnet02"
 }
+##private_subnet az_zone
+variable "pr_subnet_az_zone02" {
+  default = "us-east-1b"
+  type = string
+  description = "pr_az zone for subnet02"
+}
+
+variable "pr_subnet_az_zone01" {
+  default = "us-east-1a"
+  type = string
+  description = "pr_az zone for subnet01"
+}
 
 ##public_subnet_cidr_block
 variable "public_subnet_cidr_block_01" {
@@ -52,4 +64,21 @@ variable "public_subnet_cidr_block_03" {
   default     = "10.0.3.0/24"
   type        = string
   description = "Cidr block for public-subnet_03"
+}
+
+##private_subnet_cidr_block
+variable "private_subnet_cidr_block_01" {
+  default     = "10.0.11.0/24"
+  type        = string
+  description = "Cidr block for private_subnet_01"
+}
+variable "private_subnet_cidr_block_02" {
+  default     = "10.0.12.0/24"
+  type        = string
+  description = "Cidr block for private_subnet_02"
+}
+variable "private_subnet_cidr_block_03" {
+  default     = "10.0.13.0/24"
+  type        = string
+  description = "Cidr block for private_subnet_03"
 }
