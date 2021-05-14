@@ -24,6 +24,19 @@ variable "vpc_cidr_block" {
   description = "Cidr block for first_vpc"
 }
 
+###subnet az zone
+variable "subnet_az_zone01" {
+  default = "us-east-1a"
+  type = string
+  description = "az zone for subnet01"
+}
+
+variable "subnet_az_zone02" {
+  default = "us-east-1b"
+  type = string
+  description = "az zone for subnet02"
+}
+
 ##public_subnet_cidr_block
 variable "public_subnet_cidr_block_01" {
   default     = "10.0.1.0/24"

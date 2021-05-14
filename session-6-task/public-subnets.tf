@@ -3,6 +3,7 @@
 resource "aws_subnet" "public_subnet-01" {
   vpc_id     = aws_vpc.first_vpc.id
   cidr_block = var.public_subnet_cidr_block_01
+  availability_zone = var.subnet_az_zone01
 
   tags = {
     Name    = "${var.env}-pub_subnet1"
@@ -14,7 +15,7 @@ resource "aws_subnet" "public_subnet-01" {
 resource "aws_subnet" "public_subnet-02" {
   vpc_id     = aws_vpc.first_vpc.id
   cidr_block = var.public_subnet_cidr_block_02
-  
+  availability_zone = var.subnet_az_zone02
 
   tags = {
     Name    = "${var.env}-pub_subnet2"
