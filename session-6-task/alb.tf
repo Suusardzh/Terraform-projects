@@ -3,7 +3,7 @@ resource "aws_lb" "webserver_alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
-  subnets            = [aws_subnet.public_subnet-01.id , aws_subnet.public_subnet-02.id]
+  subnets            = [aws_subnet.public_subnet-01.id, aws_subnet.public_subnet-02.id ]
 }
 
 
@@ -43,6 +43,8 @@ resource "aws_security_group_rule" "http_igress" {
     security_group_id = aws_security_group.alb_sg.id
 
 }
+
+
 
 resource "aws_security_group_rule" "alb_egress" {
     type = "egress"
