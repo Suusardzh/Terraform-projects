@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "1st-bucket" {
-  bucket = "${var.env}-terraform-session-10-suusar"
+resource "aws_s3_bucket" "main" {
+  bucket = "${var.env}-terraform-session-10-module"
   acl    = "private"
 
   tags = local.tags
