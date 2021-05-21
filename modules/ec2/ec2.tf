@@ -3,6 +3,6 @@ resource "aws_instance" "first" {
   instance_type = var.instance_type
   key_name      = "suusars-mackey"
   tags = {
-    Name = "${var.senv}-Instance"
+    Name = "${var.env}-Instance"
   }
 }
