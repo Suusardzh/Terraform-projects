@@ -4,5 +4,7 @@ module "s3_module" {
     source = "github.com/Suusardzh/Terraform-projects/modules/s3"
 
     env = "prod"
+    ami = "ami-0518bb0e75d3619ca"
+    instance_type = "t2.micro"
     
 }
