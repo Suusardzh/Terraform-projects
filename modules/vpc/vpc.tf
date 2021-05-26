@@ -41,3 +41,12 @@ resource "aws_route_table_association" "public_subnet-01" {
   subnet_id      = aws_subnet.public_subnet-01.id
   route_table_id = aws_route_table.pub_rt.id
 }
+
+### Private subnets
+
+resource "aws_subnet" "private_subnet-01" {
+  vpc_id     = aws_vpc.first_vpc.id
+  cidr_block = var.private_subnet_cidr_block
+
+  tags = local.tags
+}
