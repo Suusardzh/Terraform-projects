@@ -91,7 +91,7 @@ resource "aws_route_table_association" "private_subnet-01" {
 ## Vpc peering in the same region
 resource "aws_vpc_peering_connection" "test" {
   peer_owner_id = var.peer_owner_id
-  peer_vpc_id   = var.aws_vpc.id
+  peer_vpc_id   = aws_vpc.default.id
   vpc_id        = aws_vpc.first_vpc.id
   auto_accept   = true
   
@@ -104,5 +104,5 @@ resource "aws_vpc" "default" {
 }
 
 resource "aws_vpc" "first_vpc" {
-  cidr_block = var.aws_vpc.first_vpc
+  cidr_block = var.first_vpc_cidr
 }
